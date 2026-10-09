@@ -1,0 +1,15 @@
+---
+import { business } from "../data/business";
+interface Props {
+  class?: string;
+}
+const { class: extraClass = "" } = Astro.props;
+---
+
+<a
+  class:list={["button", extraClass]}
+  href={business.booking}
+  target="_blank"
+  rel="noopener noreferrer"
+  >Agendar horário <span aria-hidden="true">↗</span></a
+>

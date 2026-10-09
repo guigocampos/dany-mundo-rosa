@@ -1,0 +1,59 @@
+---
+import "../styles/global.css";
+import { schema } from "../data/business";
+import { indexable, siteUrl } from "../data/publication";
+const description =
+  "Demonstração de website para Dany Mundo Rosa Beauty: cabelos, unhas e cuidados de beleza na Vila Tupi, Praia Grande. Proposta da Ghati Inovações.";
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fbf8f6" />
+    <title>
+      Dany Mundo Rosa Beauty | Beleza em Praia Grande — Demonstração
+    </title>
+    <meta name="description" content={description} />
+    <meta
+      name="robots"
+      content={indexable ? "index, follow" : "noindex, nofollow, noarchive"}
+    />
+    {siteUrl && <link rel="canonical" href={siteUrl.href} />}
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta
+      property="og:title"
+      content="Dany Mundo Rosa Beauty — Proposta de website"
+    />
+    <meta property="og:description" content={description} />
+    <meta
+      property="og:image"
+      content={siteUrl
+        ? new URL("/brand/dany-mundo-rosa.png", siteUrl).href
+        : "/brand/dany-mundo-rosa.png"}
+    />
+    <meta property="og:image:alt" content="Logo Dany Mundo Rosa Beauty, em PNG transparente" />
+    <link rel="icon" type="image/png" href="/brand/dany-mundo-rosa.png" />
+    <link
+      rel="preload"
+      href="/fonts/instrument-sans.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/instrument-serif-italic.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <slot />
+  </body>
+</html>

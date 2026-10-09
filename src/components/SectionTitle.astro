@@ -1,0 +1,17 @@
+---
+interface Props {
+  label: string;
+  lines: string[];
+  accent: string;
+  id?: string;
+}
+const { label, lines, accent, id } = Astro.props;
+---
+
+<div class="section-title" data-reveal="title">
+  <p class="eyebrow">{label}<span aria-hidden="true"></span></p>
+  <h2 id={id}>
+    {lines.map((line) => <span class="title-line">{line}</span>)}<em
+      >{accent}</em>
+  </h2>
+</div>

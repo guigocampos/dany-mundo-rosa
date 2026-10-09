@@ -1,0 +1,404 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import BookingLink from "../components/BookingLink.astro";
+import EditorialPhoto from "../components/EditorialPhoto.astro";
+import { business } from "../data/business";
+import hero from "../assets/hero.png";
+import hair from "../assets/hair.png";
+import portrait from "../assets/portrait.png";
+import lashes from "../assets/lashes.png";
+import nails from "../assets/manicure.png";
+import interior from "../assets/interior.png";
+const services = [
+  {
+    name: "Cabelos",
+    number: "01",
+    image: hair,
+    description: "Cortes, mechas, coloração, escovas e tratamentos.",
+    position: "center 40%",
+  },
+  {
+    name: "Unhas",
+    number: "02",
+    image: nails,
+    description: "Manicure, pedicure, esmaltação em gel e alongamento.",
+    position: "center",
+  },
+  {
+    name: "Olhar",
+    number: "03",
+    image: portrait,
+    description: "Design de sobrancelhas e extensão de cílios.",
+    position: "center 30%",
+  },
+];
+---
+
+<Layout>
+  <div class="demo-bar">
+    Proposta de website <span>por Ghati Inovações</span><span
+      class="demo-status">Demonstração • não é o site oficial</span>
+  </div>
+  <header class="header">
+    <a class="brand" href="#inicio" aria-label="Dany Mundo Rosa Beauty, início"
+      ><img
+        src="/brand/dany-mundo-rosa.png"
+        width="658"
+        height="350"
+        alt="Dany Mundo Rosa — Espaço de Beleza das Mulheres Maravilhosas"
+      /></a
+    >
+    <nav class="desktop-nav" aria-label="Navegação principal">
+      <a href="#servicos">Serviços</a><a href="#sobre">Nosso espaço</a><a
+        href="#portfolio">Inspirações</a
+      ><a href="#equipe">Quem cuida</a><a href="#contato">Contato</a>
+    </nav>
+    <BookingLink class="nav-booking" />
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="mobile-nav"
+      ><span class="menu-lines" aria-hidden="true"></span><span
+        class="menu-label">Menu</span
+      ></button
+    >
+    <nav
+      id="mobile-nav"
+      class="mobile-nav"
+      aria-label="Navegação mobile"
+      hidden
+    >
+      <a href="#servicos">Serviços</a><a href="#sobre">Nosso espaço</a><a
+        href="#portfolio">Inspirações</a
+      ><a href="#equipe">Quem cuida</a><a href="#contato">Contato</a
+      ><BookingLink />
+    </nav>
+  </header>
+  <main id="conteudo">
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <Image
+        class="hero-image"
+        src={hero}
+        alt="Imagem conceitual: duas mulheres em um retrato editorial de beleza; não são clientes ou profissionais da Dany"
+        widths={[720, 1200, 1600, 2000]}
+        sizes="100vw"
+        format="webp"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <div class="hero-content">
+        <p class="eyebrow">Dany Mundo Rosa Beauty · Praia Grande</p><h1
+          id="hero-title"
+        >
+          <span>SUA BELEZA</span><span>FLORESCE</span><em>em você</em>
+        </h1><div class="hero-bottom">
+          <p>
+            Cabelos, unhas e cuidados de beleza.<br />Um momento só seu, na Vila
+            Tupi.
+          </p><BookingLink />
+        </div>
+      </div>
+      <div class="hero-inset">
+        <p>
+          Espaço de Beleza<br />das Mulheres<br /><em>Maravilhosas.</em><span
+            >A essência do Mundo Rosa.</span>
+        </p><Image
+          src={portrait}
+          alt="Retrato de modelo fictícia, imagem conceitual"
+          width={200}
+          format="webp"
+          loading="eager"
+        />
+      </div>
+      <p class="hero-disclaimer">Fotografia conceitual · modelos fictícias</p>
+    </section>
+
+    <section
+      class="services section wrap"
+      id="servicos"
+      aria-labelledby="services-title"
+    >
+      <div class="section-heading">
+        <SectionTitle
+          label="Nossos serviços"
+          lines={["TUDO PARA", "SUA BELEZA"]}
+          accent="por completo"
+          id="services-title"
+        /><div class="section-aside">
+          <p>
+            Do cabelo às unhas, um cuidado para cada detalhe. Escolha seu
+            serviço na agenda do salão.
+          </p><BookingLink />
+        </div>
+      </div>
+      <div class="service-gallery">
+        {
+          services.map((service) => (
+            <a
+              class="service-photo"
+              href={business.booking}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-reveal="photo"
+            >
+              <>
+                <Image
+                  src={service.image}
+                  alt={`Imagem demonstrativa da categoria ${service.name}; não é um resultado da Dany`}
+                  widths={[440, 760, 1100]}
+                  sizes="(max-width: 767px) 88vw, 31vw"
+                  format="webp"
+                  loading="lazy"
+                  style={`object-position:${service.position}`}
+                />
+                <span class="service-number">{service.number}</span>
+                <div class="service-overlay">
+                  <>
+                    <h3>{service.name}</h3>
+                    <p>{service.description}</p>
+                    <span class="service-arrow" aria-hidden="true">
+                      ↗
+                    </span>
+                  </>
+                </div>
+                <span class="service-disclaimer">Imagem demonstrativa</span>
+              </>
+            </a>
+          ))
+        }
+      </div>
+      <div class="other-services">
+        <p>Também no catálogo</p><span>Maquiagem social</span><span
+          >Depilação</span
+        ><span>Spa dos pés</span><span>Podologia</span><a
+          href={business.booking}
+          target="_blank"
+          rel="noopener noreferrer"
+          >Ver todos os serviços <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section class="about" id="sobre" aria-labelledby="about-title">
+      <div class="about-content">
+        <SectionTitle
+          label="Sobre o Mundo Rosa"
+          lines={["MAIS QUE", "UM SALÃO"]}
+          accent="um espaço seu"
+          id="about-title"
+        /><p class="about-intro">
+          “Espaço de Beleza das Mulheres Maravilhosas.” A assinatura da Dany
+          traduz a personalidade de um espaço de beleza feminino na Vila Tupi,
+          em Praia Grande.
+        </p><div class="about-facts">
+          <p>
+            <span aria-hidden="true">♡</span>Espaço de<br />beleza feminino
+          </p><p>
+            <span aria-hidden="true">⌂</span>Na Vila Tupi,<br />Praia Grande
+          </p><p><span aria-hidden="true">↗</span>Agendamento<br />online</p><p
+          >
+            <span aria-hidden="true">◎</span>Empresa de<br />empreendedoras
+          </p>
+        </div><a
+          class="text-link"
+          href={business.maps}
+          target="_blank"
+          rel="noopener noreferrer"
+          >Conheça a localização <span aria-hidden="true">↗</span></a>
+      </div>
+      <figure class="about-image" data-reveal="photo">
+        <Image
+          src={interior}
+          alt="Ambiente fictício de beleza usado como placeholder; não representa o espaço real da Dany"
+          widths={[700, 1000, 1400]}
+          sizes="(max-width: 767px) 100vw, 50vw"
+          format="webp"
+          loading="lazy"
+        /><span class="location-label"
+          >Prévia visual<br />Ambiente conceitual</span
+        ><figcaption>
+          Ambiente conceitual • substituir por foto real do salão
+        </figcaption>
+      </figure>
+    </section>
+
+    <section
+      class="portfolio section wrap"
+      id="portfolio"
+      aria-labelledby="portfolio-title"
+    >
+      <div class="section-heading">
+        <SectionTitle
+          label="Portfólio · seleção conceitual"
+          lines={["BELEZA NOS"]}
+          accent="pequenos detalhes"
+          id="portfolio-title"
+        /><div class="section-aside">
+          <p>
+            Texturas, cores e olhares.<br />Uma seleção visual para inspirar seu
+            próximo momento de beleza.
+          </p><BookingLink />
+        </div>
+      </div>
+      <div class="editorial-gallery">
+        <EditorialPhoto
+          image={nails}
+          alt="Imagem conceitual de unhas em rosa nude, sem vínculo com trabalhos da Dany"
+          caption="O delicado também marca."
+          class="gallery-nails"
+        /><EditorialPhoto
+          image={lashes}
+          alt="Imagem demonstrativa de extensão suave de cílios em modelo fictícia"
+          caption="Leveza em cada olhar."
+          class="gallery-eyes"
+          position="center 24%"
+        /><EditorialPhoto
+          image={hair}
+          alt="Ondas e tons castanhos em cabelo de modelo fictícia"
+          caption="Movimento que encanta."
+          class="gallery-hair"
+          position="center 40%"
+        /><EditorialPhoto
+          image={portrait}
+          alt="Retrato de beleza demonstrativo, com maquiagem suave"
+          caption="A beleza de ser você."
+          class="gallery-face"
+          position="center 42%"
+        /><p class="gallery-note">
+          Cada detalhe,<br />uma forma de<br /><em>se expressar.</em>
+        </p><EditorialPhoto
+          image={nails}
+          alt="Detalhe demonstrativo de esmaltação em rosa nude"
+          caption="Rosa em cada gesto."
+          class="gallery-detail"
+          position="65% center"
+        />
+      </div>
+      <p class="portfolio-disclaimer">
+        Imagens demonstrativas, não são resultados da Dany. O portfólio real
+        será incluído com autorização.
+      </p>
+      <a
+        class="text-link instagram-link"
+        href={business.instagram}
+        target="_blank"
+        rel="noopener noreferrer"
+        >Conheça o Instagram do salão <span aria-hidden="true">↗</span></a
+      >
+    </section>
+
+    <section class="team section wrap" id="equipe" aria-labelledby="team-title">
+      <div class="section-heading">
+        <SectionTitle
+          label="Quem cuida de você"
+          lines={["POR TRÁS DO"]}
+          accent="Mundo Rosa"
+          id="team-title"
+        /><div class="section-aside">
+          <p>
+            Beleza também é encontro.<br />Converse com o salão e conheça as
+            profissionais disponíveis para o seu atendimento.
+          </p><a
+            class="text-link"
+            href={business.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            >Conversar com o salão <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <div class="team-stage">
+        <span class="team-backdrop" aria-hidden="true">MUNDO ROSA</span><div
+          class="portrait-placeholder"
+        >
+          <img
+            src="/brand/dany-mundo-rosa.png"
+            width="658"
+            height="350"
+            alt="Logo Dany Mundo Rosa com rosa, lettering e tesoura verde"
+          /><p>
+            Um espaço feito de pessoas.<br /><em
+              >Uma história para conhecer.</em>
+          </p><span class="placeholder-caption"
+            >Espaço reservado para retrato autorizado<br />da profissional
+            responsável pelo salão</span>
+        </div><div class="team-signature">
+          <p>Dany Mundo Rosa Beauty</p><span
+            >Espaço de Beleza das<br />Mulheres Maravilhosas</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contato" aria-labelledby="contact-title">
+      <div class="wrap contact-grid">
+        <div>
+          <SectionTitle
+            label="Localização & agendamento"
+            lines={["SEU PRÓXIMO"]}
+            accent="momento de beleza"
+            id="contact-title"
+          /><p class="contact-intro">
+            Escolha seu cuidado.<br />O seu momento começa aqui.
+          </p><BookingLink />
+        </div><div class="contact-details">
+          <div>
+            <h3>Encontre o Mundo Rosa</h3><address>
+              {business.address}<br />{business.locality}<br />CEP {
+                business.postalCode
+              }
+            </address><a
+              class="text-link"
+              href={business.maps}
+              target="_blank"
+              rel="noopener noreferrer"
+              >Traçar rota no Google Maps <span aria-hidden="true">↗</span></a>
+          </div><div>
+            <h3>Vamos conversar</h3><a class="phone" href={business.tel}
+              >{business.phone}</a
+            ><a
+              class="text-link"
+              href={business.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              >WhatsApp <span aria-hidden="true">↗</span></a>
+          </div><div>
+            <h3>Seu horário</h3><p>
+              Atendimento com agendamento.<br />Consulte dias e horários
+              disponíveis na agenda.
+            </p>
+          </div><a
+            class="text-link"
+            href={business.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            >@danymundorosabeauty <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer wrap">
+    <a href="#inicio" aria-label="Voltar ao início"
+      ><img
+        src="/brand/dany-mundo-rosa.png"
+        width="658"
+        height="350"
+        alt="Dany Mundo Rosa"
+      /></a
+    ><p>
+      Uma proposta da <strong>Ghati Inovações</strong><span
+        >Demonstração comercial. Projeto sujeito à aprovação da proprietária.</span>
+    </p><a class="footer-top" href="#inicio"
+      >Voltar ao topo <span aria-hidden="true">↑</span></a>
+  </footer>
+  <dialog id="photo-dialog" aria-labelledby="photo-dialog-title">
+    <button class="dialog-close" type="button" aria-label="Fechar imagem"
+      >Fechar <span aria-hidden="true">×</span></button
+    ><img id="dialog-image" alt="" /><div>
+      <h2 id="photo-dialog-title"></h2><p>
+        Imagem demonstrativa. Não é um trabalho realizado pela Dany.
+      </p>
+    </div>
+  </dialog>
+  <script src="../scripts/interactions.ts"></script>
+</Layout>
