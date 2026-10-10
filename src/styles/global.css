@@ -1414,6 +1414,7 @@ body:has(dialog[open]) {
   }
   .hero {
     margin-inline: 12px;
+    width: calc(100% - 24px);
     min-height: 730px;
   }
   .hero-image {
