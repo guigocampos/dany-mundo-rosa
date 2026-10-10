@@ -184,42 +184,15 @@ address {
     border-color 180ms ease,
     transform 140ms var(--ease-out);
 }
-.button span {
-  font-size: 20px;
-  line-height: 1;
-}
-.arrow-icon {
-  position: relative;
-  display: inline-block;
-  flex: 0 0 0.75em;
-  width: 0.75em;
-  height: 0.75em;
-  font-size: 18px;
-  line-height: 1;
-}
-.arrow-icon::before {
-  content: "";
-  position: absolute;
-  top: 9%;
-  right: 9%;
-  width: 45%;
-  height: 45%;
-  border-top: 1.5px solid currentColor;
-  border-right: 1.5px solid currentColor;
-}
-.arrow-icon::after {
-  content: "";
-  position: absolute;
-  top: 54%;
-  right: 9%;
-  width: 72%;
-  height: 1.5px;
-  background: currentColor;
-  transform: rotate(-45deg);
-  transform-origin: right center;
-}
-.arrow-icon.arrow-up {
-  transform: rotate(-45deg);
+.button .booking-arrow {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 .nav-booking {
   min-height: 43px;
@@ -471,13 +444,6 @@ address {
   max-width: 260px;
   min-height: 2.8em;
 }
-.service-arrow {
-  position: absolute;
-  right: 20px;
-  bottom: 55px;
-  font-size: 25px;
-  transition: transform 180ms var(--ease-out);
-}
 .service-disclaimer {
   position: absolute;
   bottom: 10px;
@@ -637,23 +603,6 @@ address {
   height: 100%;
   object-fit: cover;
   transition: transform 600ms var(--ease-out);
-}
-.photo-expand {
-  position: absolute;
-  right: 11px;
-  top: 10px;
-  color: var(--ink);
-  background: var(--off-white);
-  width: 28px;
-  height: 28px;
-  display: grid;
-  place-items: center;
-  font-size: 20px;
-  opacity: 0;
-  transition: opacity 180ms ease;
-}
-.photo-trigger:focus-visible .photo-expand {
-  opacity: 1;
 }
 .editorial-photo figcaption {
   font-size: 12px;
@@ -979,9 +928,6 @@ body:has(dialog[open]) {
   .service-photo:hover > img {
     transform: scale(1.035);
   }
-  .service-photo:hover .service-arrow {
-    transform: translate(2px, -2px);
-  }
   .photo-trigger:hover img {
     transform: scale(1.035);
   }
@@ -990,9 +936,6 @@ body:has(dialog[open]) {
   }
   .gallery-detail .photo-trigger:hover img {
     transform: scale(1.65);
-  }
-  .photo-trigger:hover .photo-expand {
-    opacity: 1;
   }
   .text-link:hover {
     color: var(--pink-ink);
@@ -1222,11 +1165,6 @@ body:has(dialog[open]) {
   .service-overlay p {
     font-size: 11px;
     max-width: 160px;
-  }
-  .service-arrow {
-    right: 12px;
-    bottom: 55px;
-    font-size: 22px;
   }
   .service-disclaimer {
     left: 13px;
@@ -1575,11 +1513,6 @@ body:has(dialog[open]) {
     font-size: 9px;
     left: 20px;
   }
-  .service-arrow {
-    right: 20px;
-    bottom: 54px;
-    font-size: 24px;
-  }
   .other-services {
     margin-top: 24px;
     gap: 14px 20px;
@@ -1715,14 +1648,6 @@ body:has(dialog[open]) {
   }
   .editorial-photo figcaption > span {
     font-size: 8px;
-  }
-  .photo-expand {
-    opacity: 1;
-    width: 25px;
-    height: 25px;
-    right: 8px;
-    top: 8px;
-    font-size: 17px;
   }
   .portfolio-disclaimer {
     font-size: 10px;
