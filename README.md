@@ -29,7 +29,7 @@ Para encerrar o servidor, use `Ctrl+C` no terminal que o iniciou. Não abra `dis
 
 Astro 7.3.8, TypeScript e CSS próprio. HTML estático, sem framework de cliente, backend, cookies, analytics ou bibliotecas de animação. A única dependência da aplicação é Astro. Os componentes reutilizados são título editorial, botão de agendamento e fotografia com ampliação.
 
-Seções: navegação, hero editorial, serviços, sobre o salão, portfólio conceitual, espaço reservado à apresentação da profissional, localização/agendamento e footer.
+Seções: navegação, hero editorial, serviços, sobre o salão, inspirações de beleza, identidade do espaço, localização/agendamento e footer.
 
 O agendamento é realizado no MinhaAgenda existente. Os links de WhatsApp, telefone, Instagram e Maps usam os canais confirmados na pesquisa. O website não envia mensagens nem cria reservas por conta própria.
 
@@ -53,18 +53,18 @@ Consulte [ENTREGA.md](ENTREGA.md) para fontes, pendências, inventário dos asse
 
 Dados comerciais centralizados em `src/data/business.ts`. Seções e fotografias em `src/pages/index.astro`; tokens e regras responsivas em `src/styles/global.css`; menu, reveals e ampliação em `src/scripts/interactions.ts`.
 
-Substitua os PNGs de `src/assets` por fotografias autorizadas, ajustando imports, alt, recortes e legendas. Astro gera versões WebP com dimensões reservadas, `srcset` e carregamento tardio fora da hero.
+As imagens de beleza restantes em `src/assets` são composições editoriais geradas; use fotos autorizadas antes de apresentá-las como resultados do salão. A imagem do espaço é a foto enviada pelo usuário com correção de exposição. Astro gera versões WebP com dimensões reservadas, `srcset` e carregamento tardio fora da hero.
 
 ## Aprovação e publicação oficial
 
-A demonstração usa `noindex, nofollow, noarchive`, robots com `Disallow: /` e sitemap vazio. O JSON-LD BeautySalon contém somente nome, endereço, telefone, coordenadas e links confirmados; não publica horários divergentes, preços, avaliação agregada ou equipe.
+A indexação permanece bloqueada por configuração (`noindex, nofollow, noarchive`, `Disallow: /` e sitemap vazio) até que domínio e autorização de publicação sejam definidos. O JSON-LD BeautySalon contém somente nome, endereço, telefone, coordenadas e links confirmados; não publica horários divergentes, preços, avaliação agregada ou equipe.
 
 Somente após aprovação da proprietária:
 
-1. Validar as pendências, substituir os assets demonstrativos e incluir retrato/nome/função autorizados.
-2. Revisar a copy com a proprietária e remover avisos de demonstração; atualizar title, descrição e Open Graph em `src/layouts/Layout.astro`.
+1. Validar as pendências e substituir as imagens editoriais por fotos autorizadas antes de apresentá-las como resultados do salão.
+2. Confirmar a copy, o title, a descrição e os metadados Open Graph com a proprietária.
 3. Copiar `.env.example` para `.env`, preencher `PUBLIC_SITE_URL` com o domínio HTTPS oficial e definir `PUBLIC_INDEXABLE=true`.
-4. Executar novamente build, testes e revisão visual. O teste específico de demonstração deve ser adaptado para verificar os metadados aprovados.
+4. Executar novamente build, testes e revisão visual.
 5. Hospedar **apenas `dist/`**. Não expor código-fonte, documentação, `.env` ou `node_modules`.
 
 Sem domínio HTTPS e flag explícita, a indexação permanece bloqueada. A configuração gera canonical, OG image absoluto e sitemap com o domínio configurado. O bloqueio de indexação não equivale a controle de acesso: a demonstração local não possui conteúdo privado nem segredos.

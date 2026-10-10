@@ -10,7 +10,7 @@ import hair from "../assets/hair.png";
 import portrait from "../assets/portrait.png";
 import lashes from "../assets/lashes.png";
 import nails from "../assets/manicure.png";
-import interior from "../assets/interior.png";
+import interior from "../assets/interior-real.png";
 const services = [
   {
     name: "Cabelos",
@@ -37,10 +37,6 @@ const services = [
 ---
 
 <Layout>
-  <div class="demo-bar">
-    Proposta de website <span>por Ghati Inovações</span><span
-      class="demo-status">Demonstração • não é o site oficial</span>
-  </div>
   <header class="header">
     <a class="brand" href="#inicio" aria-label="Dany Mundo Rosa Beauty, início"
       ><img
@@ -53,7 +49,7 @@ const services = [
     <nav class="desktop-nav" aria-label="Navegação principal">
       <a href="#servicos">Serviços</a><a href="#sobre">Nosso espaço</a><a
         href="#portfolio">Inspirações</a
-      ><a href="#equipe">Quem cuida</a><a href="#contato">Contato</a>
+      ><a href="#equipe">Nosso cuidado</a><a href="#contato">Contato</a>
     </nav>
     <BookingLink class="nav-booking" />
     <button
@@ -73,7 +69,7 @@ const services = [
     >
       <a href="#servicos">Serviços</a><a href="#sobre">Nosso espaço</a><a
         href="#portfolio">Inspirações</a
-      ><a href="#equipe">Quem cuida</a><a href="#contato">Contato</a
+      ><a href="#equipe">Nosso cuidado</a><a href="#contato">Contato</a
       ><BookingLink />
     </nav>
   </header>
@@ -82,7 +78,7 @@ const services = [
       <Image
         class="hero-image"
         src={hero}
-        alt="Imagem conceitual: duas mulheres em um retrato editorial de beleza; não são clientes ou profissionais da Dany"
+        alt="Retrato editorial de duas mulheres com maquiagem natural"
         widths={[720, 1200, 1600, 2000]}
         sizes="100vw"
         format="webp"
@@ -107,13 +103,12 @@ const services = [
             >A essência do Mundo Rosa.</span>
         </p><Image
           src={portrait}
-          alt="Retrato de modelo fictícia, imagem conceitual"
+          alt="Retrato feminino com maquiagem natural"
           width={200}
           format="webp"
           loading="eager"
         />
       </div>
-      <p class="hero-disclaimer">Fotografia conceitual · modelos fictícias</p>
     </section>
 
     <section
@@ -147,7 +142,7 @@ const services = [
               <>
                 <Image
                   src={service.image}
-                  alt={`Imagem demonstrativa da categoria ${service.name}; não é um resultado da Dany`}
+                  alt={`Detalhe de beleza da categoria ${service.name}`}
                   widths={[440, 760, 1100]}
                   sizes="(max-width: 767px) 88vw, 31vw"
                   format="webp"
@@ -159,12 +154,9 @@ const services = [
                   <>
                     <h3>{service.name}</h3>
                     <p>{service.description}</p>
-                    <span class="service-arrow" aria-hidden="true">
-                      ↗
-                    </span>
+                    <span class="service-arrow arrow-icon" aria-hidden="true"></span>
                   </>
                 </div>
-                <span class="service-disclaimer">Imagem demonstrativa</span>
               </>
             </a>
           ))
@@ -177,7 +169,7 @@ const services = [
           href={business.booking}
           target="_blank"
           rel="noopener noreferrer"
-          >Ver todos os serviços <span aria-hidden="true">↗</span></a>
+          >Ver todos os serviços <span class="arrow-icon" aria-hidden="true"></span></a>
       </div>
     </section>
 
@@ -197,7 +189,7 @@ const services = [
             <span aria-hidden="true">♡</span>Espaço de<br />beleza feminino
           </p><p>
             <span aria-hidden="true">⌂</span>Na Vila Tupi,<br />Praia Grande
-          </p><p><span aria-hidden="true">↗</span>Agendamento<br />online</p><p
+          </p><p><span class="arrow-icon" aria-hidden="true"></span>Agendamento<br />online</p><p
           >
             <span aria-hidden="true">◎</span>Empresa de<br />empreendedoras
           </p>
@@ -206,21 +198,17 @@ const services = [
           href={business.maps}
           target="_blank"
           rel="noopener noreferrer"
-          >Conheça a localização <span aria-hidden="true">↗</span></a>
+          >Conheça a localização <span class="arrow-icon" aria-hidden="true"></span></a>
       </div>
       <figure class="about-image" data-reveal="photo">
         <Image
           src={interior}
-          alt="Ambiente fictício de beleza usado como placeholder; não representa o espaço real da Dany"
+          alt="Interior do salão Dany Mundo Rosa Beauty, com cadeiras rosa, espelhos e área de atendimento"
           widths={[700, 1000, 1400]}
           sizes="(max-width: 767px) 100vw, 50vw"
           format="webp"
           loading="lazy"
-        /><span class="location-label"
-          >Prévia visual<br />Ambiente conceitual</span
-        ><figcaption>
-          Ambiente conceitual • substituir por foto real do salão
-        </figcaption>
+        />
       </figure>
     </section>
 
@@ -231,7 +219,7 @@ const services = [
     >
       <div class="section-heading">
         <SectionTitle
-          label="Portfólio · seleção conceitual"
+          label="Inspirações de beleza"
           lines={["BELEZA NOS"]}
           accent="pequenos detalhes"
           id="portfolio-title"
@@ -245,24 +233,24 @@ const services = [
       <div class="editorial-gallery">
         <EditorialPhoto
           image={nails}
-          alt="Imagem conceitual de unhas em rosa nude, sem vínculo com trabalhos da Dany"
+          alt="Unhas em tom nude rosado"
           caption="O delicado também marca."
           class="gallery-nails"
         /><EditorialPhoto
           image={lashes}
-          alt="Imagem demonstrativa de extensão suave de cílios em modelo fictícia"
+          alt="Olhar com extensão suave de cílios"
           caption="Leveza em cada olhar."
           class="gallery-eyes"
           position="center 24%"
         /><EditorialPhoto
           image={hair}
-          alt="Ondas e tons castanhos em cabelo de modelo fictícia"
+          alt="Cabelos castanhos com ondas e luzes sutis"
           caption="Movimento que encanta."
           class="gallery-hair"
           position="center 40%"
         /><EditorialPhoto
           image={portrait}
-          alt="Retrato de beleza demonstrativo, com maquiagem suave"
+          alt="Retrato feminino com maquiagem suave"
           caption="A beleza de ser você."
           class="gallery-face"
           position="center 42%"
@@ -270,22 +258,18 @@ const services = [
           Cada detalhe,<br />uma forma de<br /><em>se expressar.</em>
         </p><EditorialPhoto
           image={nails}
-          alt="Detalhe demonstrativo de esmaltação em rosa nude"
+          alt="Detalhe de esmaltação em rosa nude"
           caption="Rosa em cada gesto."
           class="gallery-detail"
           position="65% center"
         />
       </div>
-      <p class="portfolio-disclaimer">
-        Imagens demonstrativas, não são resultados da Dany. O portfólio real
-        será incluído com autorização.
-      </p>
       <a
         class="text-link instagram-link"
         href={business.instagram}
         target="_blank"
         rel="noopener noreferrer"
-        >Conheça o Instagram do salão <span aria-hidden="true">↗</span></a
+        >Conheça o Instagram do salão <span class="arrow-icon" aria-hidden="true"></span></a
       >
     </section>
 
@@ -305,12 +289,12 @@ const services = [
             href={business.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            >Conversar com o salão <span aria-hidden="true">↗</span></a>
+            >Conversar com o salão <span class="arrow-icon" aria-hidden="true"></span></a>
         </div>
       </div>
       <div class="team-stage">
         <span class="team-backdrop" aria-hidden="true">MUNDO ROSA</span><div
-          class="portrait-placeholder"
+          class="team-brand"
         >
           <img
             src="/brand/dany-mundo-rosa.png"
@@ -320,9 +304,7 @@ const services = [
           /><p>
             Um espaço feito de pessoas.<br /><em
               >Uma história para conhecer.</em>
-          </p><span class="placeholder-caption"
-            >Espaço reservado para retrato autorizado<br />da profissional
-            responsável pelo salão</span>
+          </p>
         </div><div class="team-signature">
           <p>Dany Mundo Rosa Beauty</p><span
             >Espaço de Beleza das<br />Mulheres Maravilhosas</span>
@@ -352,7 +334,7 @@ const services = [
               href={business.maps}
               target="_blank"
               rel="noopener noreferrer"
-              >Traçar rota no Google Maps <span aria-hidden="true">↗</span></a>
+              >Traçar rota no Google Maps <span class="arrow-icon" aria-hidden="true"></span></a>
           </div><div>
             <h3>Vamos conversar</h3><a class="phone" href={business.tel}
               >{business.phone}</a
@@ -361,7 +343,7 @@ const services = [
               href={business.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              >WhatsApp <span aria-hidden="true">↗</span></a>
+              >WhatsApp <span class="arrow-icon" aria-hidden="true"></span></a>
           </div><div>
             <h3>Seu horário</h3><p>
               Atendimento com agendamento.<br />Consulte dias e horários
@@ -372,7 +354,7 @@ const services = [
             href={business.instagram}
             target="_blank"
             rel="noopener noreferrer"
-            >@danymundorosabeauty <span aria-hidden="true">↗</span></a>
+            >@danymundorosabeauty <span class="arrow-icon" aria-hidden="true"></span></a>
         </div>
       </div>
     </section>
@@ -385,19 +367,14 @@ const services = [
         height="350"
         alt="Dany Mundo Rosa"
       /></a
-    ><p>
-      Uma proposta da <strong>Ghati Inovações</strong><span
-        >Demonstração comercial. Projeto sujeito à aprovação da proprietária.</span>
-    </p><a class="footer-top" href="#inicio"
-      >Voltar ao topo <span aria-hidden="true">↑</span></a>
+    ><a class="footer-top" href="#inicio"
+      >Voltar ao topo <span class="arrow-icon arrow-up" aria-hidden="true"></span></a>
   </footer>
   <dialog id="photo-dialog" aria-labelledby="photo-dialog-title">
     <button class="dialog-close" type="button" aria-label="Fechar imagem"
       >Fechar <span aria-hidden="true">×</span></button
     ><img id="dialog-image" alt="" /><div>
-      <h2 id="photo-dialog-title"></h2><p>
-        Imagem demonstrativa. Não é um trabalho realizado pela Dany.
-      </p>
+      <h2 id="photo-dialog-title"></h2>
     </div>
   </dialog>
   <script src="../scripts/interactions.ts"></script>

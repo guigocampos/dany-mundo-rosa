@@ -6,7 +6,7 @@ const html = await readFile(
   "utf8",
 );
 
-test("demonstração permanece sem indexação e sem domínio fictício", async () => {
+test("metadados de publicação e conteúdo público sem avisos de proposta", async () => {
   assert.match(html, /name="robots" content="noindex, nofollow, noarchive"/);
   assert.match(
     await readFile(new URL("../dist/robots.txt", import.meta.url), "utf8"),
@@ -16,7 +16,12 @@ test("demonstração permanece sem indexação e sem domínio fictício", async 
     await readFile(new URL("../dist/sitemap.xml", import.meta.url), "utf8"),
     /<loc>/,
   );
-  assert.match(html, /não é o site oficial/);
+  assert.match(html, /Dany Mundo Rosa Beauty \| Beleza em Praia Grande/);
+  assert.doesNotMatch(
+    html,
+    /proposta de website|demonstração|não é o site oficial|conceitual|fictícia|placeholder|imagem demonstrativa/i,
+  );
+  assert.doesNotMatch(html, /[↗↘→←↑↓➜➝➞⟶]/);
 });
 test("conteúdo comercial confirmado, sem preços, equipe inventada ou horários divergentes", () => {
   const schema = JSON.parse(

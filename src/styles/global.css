@@ -188,6 +188,39 @@ address {
   font-size: 20px;
   line-height: 1;
 }
+.arrow-icon {
+  position: relative;
+  display: inline-block;
+  flex: 0 0 0.75em;
+  width: 0.75em;
+  height: 0.75em;
+  font-size: 18px;
+  line-height: 1;
+}
+.arrow-icon::before {
+  content: "";
+  position: absolute;
+  top: 9%;
+  right: 9%;
+  width: 45%;
+  height: 45%;
+  border-top: 1.5px solid currentColor;
+  border-right: 1.5px solid currentColor;
+}
+.arrow-icon::after {
+  content: "";
+  position: absolute;
+  top: 54%;
+  right: 9%;
+  width: 72%;
+  height: 1.5px;
+  background: currentColor;
+  transform: rotate(-45deg);
+  transform-origin: right center;
+}
+.arrow-icon.arrow-up {
+  transform: rotate(-45deg);
+}
 .nav-booking {
   min-height: 43px;
   padding: 11px 18px;
@@ -727,7 +760,7 @@ address {
   text-align: center;
   z-index: -1;
 }
-.portrait-placeholder {
+.team-brand {
   width: 45%;
   max-width: 520px;
   min-width: 360px;
@@ -742,22 +775,16 @@ address {
   border-top-left-radius: 50% 45%;
   border-top-right-radius: 50% 45%;
 }
-.portrait-placeholder > img {
+.team-brand > img {
   width: 245px;
   margin-bottom: 24px;
 }
-.portrait-placeholder > p {
+.team-brand > p {
   font-size: 16px;
   line-height: 1.5;
 }
-.portrait-placeholder em {
+.team-brand em {
   font-size: 28px;
-}
-.placeholder-caption {
-  font-size: 12px;
-  line-height: 1.5;
-  color: var(--muted);
-  margin-top: 22px;
 }
 .team-signature {
   position: absolute;
@@ -1727,24 +1754,20 @@ body:has(dialog[open]) {
     left: -17px;
     right: -17px;
   }
-  .portrait-placeholder {
+  .team-brand {
     min-width: 0;
     width: 91%;
     padding: 42px 24px 26px;
     min-height: 335px;
   }
-  .portrait-placeholder > img {
+  .team-brand > img {
     width: 210px;
   }
-  .portrait-placeholder > p {
+  .team-brand > p {
     font-size: 13px;
   }
-  .portrait-placeholder em {
+  .team-brand em {
     font-size: 26px;
-  }
-  .placeholder-caption {
-    font-size: 9px;
-    margin-top: 20px;
   }
   .contact {
     padding: 48px 0 42px;

@@ -76,7 +76,7 @@ document
       if (!dialog || !dialogImage || !dialogTitle || !image) return;
       dialogImage.src = button.dataset.full || image.currentSrc || image.src;
       dialogImage.alt = image.alt;
-      dialogTitle.textContent = caption || "Imagem demonstrativa";
+      dialogTitle.textContent = caption || "Detalhe de beleza";
       dialog.showModal();
     });
   });

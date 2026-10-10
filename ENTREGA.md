@@ -28,20 +28,20 @@ O Maps mostrava 4,8 estrelas e 44 avaliações no momento da consulta. Esses val
 - Validação final do catálogo, tratamentos prioritários e texto institucional.
 - Aprovação da proprietária, domínio oficial e condições de publicação.
 
-## Assets demonstrativos
+## Assets visuais
 
-As seis imagens conceituais do site estão em `src/assets` e foram geradas com a ferramenta nativa de imagens. Não são fotos do salão, de clientes ou da equipe. Estão identificadas em texto visível e alt. `src/assets/dany-logo-reference.png` preserva a foto original enviada apenas como referência. O PNG transparente que aparece no site, `public/brand/dany-mundo-rosa.png`, foi gerado a partir dela, preservando rosa, lettering, detalhe verde e assinatura e removendo a aparência da foto de placa. Como em qualquer reconstrução por imagem, recomenda-se comparar o texto pequeno com o original antes de aprovação comercial.
+As imagens de beleza restantes foram geradas para compor o layout; não são registros de clientes, profissionais ou serviços realizados. Essa informação fica no handoff, não na interface pública. `src/assets/interior-real.png` parte da foto real do salão enviada pelo usuário e recebeu correção de exposição com geração de imagem; confira detalhes e letreiros com o original, pois pixels estourados podem ser reconstruídos. `src/assets/dany-logo-reference.png` preserva a foto da marca apenas como referência. O PNG transparente `public/brand/dany-mundo-rosa.png` foi gerado a partir dela, preservando rosa, lettering, detalhe verde e assinatura e removendo a aparência da foto de placa.
 
 | Arquivo | Uso | Substituição recomendada |
 | --- | --- | --- |
-| `hero.png` | Capa com duas modelos fictícias | Retrato/campanha de beleza com direitos autorizados |
+| `hero.png` | Capa editorial | Retrato/campanha de beleza com direitos autorizados |
 | `hair.png` | Categoria Cabelos e colagem | Trabalho real autorizado de cabelo |
 | `manicure.png` | Categoria Unhas e recortes da colagem | Trabalho real autorizado de unhas |
 | `portrait.png` | Categoria Olhar, inset e colagem | Trabalho real autorizado de sobrancelhas/cílios/maquiagem |
 | `lashes.png` | Detalhe de extensão de cílios na colagem | Trabalho real autorizado de cílios |
-| `interior.png` | Placeholder fotográfico da seção sobre | Foto do espaço real do salão |
+| `interior-real.png` | Foto corrigida do espaço real, enviada pelo usuário | Original enviado pelo usuário; validar detalhes reconstruídos na correção |
 
-A seção da profissional usa a identidade original como preenchimento editorial e informa explicitamente que o retrato autorizado está pendente. Não contém modelos apresentados como funcionárias ou nomes fictícios. Recortes diferentes da mesma imagem conceitual mantêm a colagem completa até a chegada de um portfólio real.
+A seção da profissional usa a identidade visual do salão e não apresenta nomes ou retratos de funcionárias.
 
 Uma foto licenciada de manicure do Unsplash foi pesquisada e avaliada, mas descartada por inconsistência estética. Ela não integra o projeto final.
 
@@ -57,7 +57,7 @@ Briefs de geração usados para as imagens demonstrativas:
 ## Validação realizada
 
 - Build de produção concluído com Astro 7.3.8.
-- Quatro testes automáticos passaram: indexação bloqueada; dados estruturados sem horários, avaliações ou equipe inventada; navegação interna e CTA; integridade de assets, alt e dimensões das imagens.
+- Quatro testes automáticos passaram: indexação bloqueada; interface pública sem avisos de proposta ou glifos de seta; dados estruturados sem horários, avaliações ou equipe inventada; navegação, CTA e assets locais.
 - Navegador: larguras 1440, 1280, 768, 390 e 375px, sem overflow horizontal. A largura útil é reduzida pela barra de rolagem do navegador desktop usado na simulação.
 - Inspeção visual desktop e mobile da sequência das seções, títulos, galerias, recortes e CTAs. Tablet recebeu composição própria para impedir sobreposição de texto com o rosto.
 - Menu mobile: abertura, fechamento ao navegar e estados `aria-expanded`.

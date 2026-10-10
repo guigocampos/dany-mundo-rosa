@@ -26,7 +26,7 @@ const full = await getImage({
   <button
     class="photo-trigger"
     type="button"
-    aria-label={`Ampliar imagem demonstrativa: ${caption}`}
+    aria-label={`Ampliar imagem: ${caption}`}
     data-lightbox
     data-full={full.src}
   >
@@ -39,7 +39,7 @@ const full = await getImage({
       style={`object-position:${position}`}
       loading="lazy"
     />
-    <span class="photo-expand" aria-hidden="true">↗</span>
+    <span class="photo-expand arrow-icon" aria-hidden="true"></span>
   </button>
-  <figcaption>{caption}<span>Imagem demonstrativa</span></figcaption>
+  <figcaption>{caption}</figcaption>
 </figure>
