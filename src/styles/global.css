@@ -751,6 +751,96 @@ address {
   display: block;
   margin-top: 7px;
 }
+.faq .section-heading {
+  margin-bottom: 48px;
+}
+.faq-list {
+  max-width: 980px;
+  margin-left: clamp(22px, 8vw, 130px);
+}
+.faq-list details {
+  border-top: 1px solid var(--line);
+}
+.faq-list details:last-child {
+  border-bottom: 1px solid var(--line);
+}
+.faq-list summary {
+  min-height: 68px;
+  padding: 18px 8px 18px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  cursor: pointer;
+  list-style: none;
+  font-size: clamp(16px, 1.5vw, 21px);
+  font-weight: 500;
+}
+.faq-list summary::-webkit-details-marker {
+  display: none;
+}
+.faq-list summary:focus-visible {
+  outline: 3px solid var(--green);
+  outline-offset: 4px;
+}
+.faq-list summary::after {
+  content: "+";
+  color: var(--pink-ink);
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 400;
+}
+.faq-list details[open] summary::after {
+  content: "−";
+}
+.faq-list details > p {
+  max-width: 720px;
+  padding: 0 42px 24px 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.65;
+}
+.faq-list details > p a {
+  color: var(--pink-ink);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.review-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-block: 1px solid var(--line);
+}
+.review-quote {
+  min-height: 220px;
+  padding: 26px 24px 22px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.review-quote + .review-quote {
+  padding-left: 24px;
+  border-left: 1px solid var(--line);
+}
+.review-quote blockquote {
+  color: var(--green);
+  font-family: var(--serif);
+  font-size: clamp(22px, 2vw, 29px);
+  font-style: italic;
+  line-height: 1.25;
+}
+.review-quote figcaption strong,
+.review-quote figcaption span {
+  display: block;
+}
+.review-quote figcaption strong {
+  font-size: 13px;
+  font-weight: 600;
+}
+.review-quote figcaption span {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 11px;
+}
 .contact {
   background: var(--blush);
   padding: 75px 0 80px;
@@ -1693,6 +1783,38 @@ body:has(dialog[open]) {
   }
   .team-brand em {
     font-size: 26px;
+  }
+  .faq .section-heading {
+    margin-bottom: 30px;
+  }
+  .faq-list {
+    margin-inline: 22px;
+  }
+  .faq-list summary {
+    min-height: 60px;
+    font-size: 14px;
+  }
+  .faq-list details > p {
+    padding-right: 8px;
+    font-size: 12px;
+  }
+  .review-list {
+    grid-template-columns: 1fr;
+  }
+  .review-quote,
+  .review-quote + .review-quote {
+    min-height: 0;
+    padding: 22px 0;
+    border-left: 0;
+  }
+  .review-quote + .review-quote {
+    border-top: 1px solid var(--line);
+  }
+  .review-quote blockquote {
+    font-size: 22px;
+  }
+  .review-quote figcaption {
+    margin-top: 20px;
   }
   .contact {
     padding: 48px 0 42px;
